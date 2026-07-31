@@ -149,7 +149,7 @@
                     <!-- Card Video Thumbnail Preview -->
                     <div class="relative aspect-[16/10] w-full overflow-hidden bg-black block group">
                         <img src="{{ $project['thumbnail'] }}" alt="{{ $project['title'] }}" class="w-full h-full object-cover filter brightness-75 group-hover:scale-105 transition-transform duration-700">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/40"></div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent"></div>
 
                         <div class="absolute top-3 left-3 right-3 flex items-center justify-between font-mono text-[10px] z-10">
                             <span class="px-2.5 py-1 bg-black/80 text-[#F5C442] border border-[#F5C442]/40 rounded-xs font-bold uppercase">
@@ -160,12 +160,13 @@
                             </span>
                         </div>
 
-                        <!-- Center Play Overlay -->
-                        <a href="{{ $project['cutjamm_url'] }}" target="_blank" class="absolute inset-0 flex items-center justify-center group-hover:scale-110 transition-transform">
-                            <div class="w-14 h-14 bg-[#F5C442] text-black rounded-full flex items-center justify-center shadow-lg font-bold text-lg pl-1">
+                        <!-- Center Play Button (Launches Cutjamm Reel Modal) -->
+                        <button @click="$store.timeline.openShowreel('{{ $project['cutjamm_url'] }}')" 
+                                class="absolute inset-0 flex items-center justify-center group-hover:scale-110 transition-transform">
+                            <div class="w-16 h-16 bg-[#F5C442] text-black rounded-full flex items-center justify-center shadow-xl font-bold text-xl pl-1 hover:bg-white transition-colors">
                                 ▶
                             </div>
-                        </a>
+                        </button>
                     </div>
 
                     <!-- Card Body -->
