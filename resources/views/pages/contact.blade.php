@@ -29,7 +29,7 @@
                         <div class="w-10 h-10 bg-[#F5C442]/10 border border-[#F5C442] text-[#F5C442] rounded-xs flex items-center justify-center font-bold">@</div>
                         <div>
                             <div class="text-gray-500 text-[10px]">EMAIL ADDRESS</div>
-                            <a href="mailto:ravindran@editor-portfolio.com" class="text-white text-base hover:text-[#F5C442] transition-colors font-bold">ravindran@editor-portfolio.com</a>
+                            <a href="mailto:ravirv3882@gmail.com" class="text-white text-base hover:text-[#F5C442] transition-colors font-bold">ravirv3882@gmail.com</a>
                         </div>
                     </div>
 
@@ -37,7 +37,7 @@
                         <div class="w-10 h-10 bg-[#FFC107]/10 border border-[#FFC107] text-[#FFC107] rounded-xs flex items-center justify-center font-bold">TEL</div>
                         <div>
                             <div class="text-gray-500 text-[10px]">STUDIO PHONE</div>
-                            <a href="tel:+13105550199" class="text-white text-base hover:text-[#FFC107] transition-colors font-bold">+1 (310) 555-0199</a>
+                            <a href="tel:+918220134740" class="text-white text-base hover:text-[#FFC107] transition-colors font-bold">+91 8220134740</a>
                         </div>
                     </div>
                 </div>
