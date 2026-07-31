@@ -1,5 +1,10 @@
 <?php
 
+// Ensure hot file is deleted so Laravel Vite generates production links from public/build/manifest.json
+if (file_exists(__DIR__ . '/public/hot')) {
+    unlink(__DIR__ . '/public/hot');
+}
+
 require __DIR__ . '/vendor/autoload.php';
 $app = require_once __DIR__ . '/bootstrap/app.php';
 
@@ -23,6 +28,11 @@ foreach ($routes as $uri => $outPath) {
     $request = Illuminate\Http\Request::create($uri, 'GET');
     $response = $app->handle($request);
     $html = $response->getContent();
+    
+    // Replace hardcoded http://localhost domain with relative /build/ URLs
+    $html = str_replace('http://localhost/build/', '/build/', $html);
+    $html = str_replace('http://127.0.0.1/build/', '/build/', $html);
+    $html = str_replace('http://127.0.0.1:8000/build/', '/build/', $html);
     
     $dir = dirname(__DIR__ . '/' . $outPath);
     if (!is_dir($dir)) {
