@@ -3,7 +3,7 @@
 @section('title', 'RAVINDRAN R — Professional Video Editor & Motion Graphics')
 
 @section('content')
-<!-- HERO SECTION: Clean Dark Studio Background (No Video Overlay) -->
+<!-- HERO SECTION: Clean Dark Studio Background -->
 <section class="relative min-h-[88vh] flex flex-col justify-between overflow-hidden bg-[#0D0D0D] pt-24 pb-8">
     
     <!-- Dark Studio Vignette & Timeline Track Grid -->
@@ -31,7 +31,7 @@
         <!-- Action CTAs -->
         <div class="mt-6 sm:mt-8 flex flex-wrap items-center justify-center gap-4 font-inter" data-aos="fade-up" data-aos-delay="200">
             <!-- Primary Golden Button -->
-            <button @click="$store.timeline.openShowreel('/videos/final.mov')" class="px-7 py-3 bg-[#F5C442] text-black font-semibold text-sm rounded-xs hover:bg-[#e5b738] transition-all transform hover:scale-[1.03] shadow-[0_0_20px_rgba(245,196,66,0.3)] flex items-center space-x-2">
+            <button @click="$store.timeline.openShowreel('https://cutjamm.com/project/67f29186475181da19ec16e6')" class="px-7 py-3 bg-[#F5C442] text-black font-semibold text-sm rounded-xs hover:bg-[#e5b738] transition-all transform hover:scale-[1.03] shadow-[0_0_20px_rgba(245,196,66,0.3)] flex items-center space-x-2">
                 <span>▶ Watch Showreel</span>
             </button>
 
@@ -59,7 +59,7 @@
     </div>
 </section>
 
-<!-- SHOWREEL SECTION (NO AUTOPLAY) -->
+<!-- SHOWREEL SECTION (CUTJAMM INTEGRATED PLAYER) -->
 <section id="showreel-section" class="py-24 bg-[#0D0D0D] relative overflow-hidden border-b border-[#1C1C1C]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
@@ -69,7 +69,7 @@
                 <span class="px-2.5 py-1 bg-[#F5C442] text-black font-bold rounded-xs">REEL 01</span>
                 <h2 class="font-serif text-3xl font-bold tracking-wide text-white">RAVINDRAN R — MASTER SHOWREEL</h2>
             </div>
-            <span class="font-mono text-xs text-gray-500">4K CINEMA MASTER // FINAL.MOV</span>
+            <span class="font-mono text-xs text-gray-500">4K CINEMA MASTER // CUTJAMM PRO</span>
         </div>
 
         <!-- Large Video Player Frame -->
@@ -86,12 +86,12 @@
                 </div>
             </div>
 
-            <!-- Native HTML5 Video Player (No Autoplay) -->
+            <!-- Integrated Cutjamm Video Player -->
             <div class="relative aspect-video w-full overflow-hidden bg-black">
-                <video controls preload="metadata" playsinline class="w-full h-full object-contain">
-                    <source src="/videos/final.mov" type="video/mp4">
-                    <source src="/videos/final.mov" type="video/quicktime">
-                </video>
+                <iframe src="https://cutjamm.com/project/67f29186475181da19ec16e6" 
+                        class="w-full h-full border-0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen></iframe>
             </div>
 
             <!-- Bottom Direct Link Bar -->
@@ -103,7 +103,7 @@
                     </a>
                 </div>
                 <div class="flex items-center space-x-3">
-                    <button @click="$store.timeline.openShowreel('/videos/final.mov')" class="px-4 py-1.5 bg-[#F5C442] text-black font-bold rounded-xs hover:bg-[#e5b738] transition-colors">
+                    <button @click="$store.timeline.openShowreel('https://cutjamm.com/project/67f29186475181da19ec16e6')" class="px-4 py-1.5 bg-[#F5C442] text-black font-bold rounded-xs hover:bg-[#e5b738] transition-colors">
                         FULLSCREEN REEL ↗
                     </button>
                 </div>
@@ -113,7 +113,7 @@
     </div>
 </section>
 
-<!-- PROJECTS GRID (NO AUTOPLAY) -->
+<!-- PROJECTS GRID -->
 <section id="projects-section" class="py-24 bg-[#0D0D0D] relative overflow-hidden border-b border-[#1C1C1C]" x-data="{ activeFilter: 'ALL' }">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
@@ -146,14 +146,12 @@
                      class="group relative bg-[#171717] border border-[#242424] rounded-sm overflow-hidden hover:border-[#F5C442] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_10px_30px_rgba(245,196,66,0.15)] flex flex-col"
                      data-aos="fade-up">
                     
-                    <!-- Native HTML5 Video Card Preview Container (No Autoplay) -->
-                    <div class="relative aspect-[16/10] w-full overflow-hidden bg-black block">
-                        <video controls preload="metadata" playsinline class="w-full h-full object-cover">
-                            <source src="{{ $project['video_file'] }}" type="video/mp4">
-                            <source src="{{ $project['video_file'] }}" type="video/quicktime">
-                        </video>
+                    <!-- Card Video Thumbnail Preview -->
+                    <div class="relative aspect-[16/10] w-full overflow-hidden bg-black block group">
+                        <img src="{{ $project['thumbnail'] }}" alt="{{ $project['title'] }}" class="w-full h-full object-cover filter brightness-75 group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/40"></div>
 
-                        <div class="absolute top-3 left-3 right-3 flex items-center justify-between font-mono text-[10px] z-10 pointer-events-none">
+                        <div class="absolute top-3 left-3 right-3 flex items-center justify-between font-mono text-[10px] z-10">
                             <span class="px-2.5 py-1 bg-black/80 text-[#F5C442] border border-[#F5C442]/40 rounded-xs font-bold uppercase">
                                 {{ $project['category'] }}
                             </span>
@@ -161,6 +159,13 @@
                                 {{ $project['duration'] }}
                             </span>
                         </div>
+
+                        <!-- Center Play Overlay -->
+                        <a href="{{ $project['cutjamm_url'] }}" target="_blank" class="absolute inset-0 flex items-center justify-center group-hover:scale-110 transition-transform">
+                            <div class="w-14 h-14 bg-[#F5C442] text-black rounded-full flex items-center justify-center shadow-lg font-bold text-lg pl-1">
+                                ▶
+                            </div>
+                        </a>
                     </div>
 
                     <!-- Card Body -->

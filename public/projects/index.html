@@ -26,7 +26,7 @@
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%230D0D0D'/><text y='70' x='15' font-size='65' fill='%23F5C442' font-family='serif' font-weight='bold'>RR</text></svg>">
 
     <!-- Vite Assets -->
-    <link rel="preload" as="style" href="/build/assets/app-BKFOxfLB.css" /><link rel="preload" as="style" href="/build/assets/app-DvB2Xm2x.css" /><link rel="modulepreload" as="script" href="/build/assets/app-8C9frG8G.js" /><link rel="stylesheet" href="/build/assets/app-BKFOxfLB.css" /><link rel="stylesheet" href="/build/assets/app-DvB2Xm2x.css" /><script type="module" src="/build/assets/app-8C9frG8G.js"></script></head>
+    <link rel="preload" as="style" href="/build/assets/app-CpYwOrot.css" /><link rel="preload" as="style" href="/build/assets/app-DvB2Xm2x.css" /><link rel="modulepreload" as="script" href="/build/assets/app-8C9frG8G.js" /><link rel="stylesheet" href="/build/assets/app-CpYwOrot.css" /><link rel="stylesheet" href="/build/assets/app-DvB2Xm2x.css" /><script type="module" src="/build/assets/app-8C9frG8G.js"></script></head>
 <body class="bg-[#0D0D0D] text-white font-inter antialiased selection:bg-[#F5C442] selection:text-black min-h-screen flex flex-col film-grain">
     
     <!-- Top Fixed Studio Transport Bar -->
@@ -287,12 +287,12 @@
         <div class="px-6 py-3.5 bg-[#0D0D0D] border-b border-[#222222] flex items-center justify-between font-mono text-xs">
             <div class="flex items-center space-x-3">
                 <span class="w-3 h-3 rounded-full bg-[#F5C442] shadow-[0_0_8px_#F5C442]"></span>
-                <span class="text-white font-bold tracking-wider">FEATURED REEL — MUSIC VIDEO EDIT [OFFICIAL WORK]</span>
+                <span class="text-white font-bold tracking-wider">RAVINDRAN R — MASTER SHOWREEL</span>
             </div>
             
             <div class="flex items-center space-x-4">
                 <a href="https://cutjamm.com/project/67f29186475181da19ec16e6" target="_blank" class="px-3 py-1 bg-[#F5C442] text-black font-bold rounded-xs hover:bg-[#e5b738] transition-colors flex items-center space-x-1">
-                    <span>CUTJAMM REEL</span>
+                    <span>CUTJAMM PRO</span>
                     <span>↗</span>
                 </a>
                 <button @click="$store.timeline.closeShowreel()" class="text-gray-400 hover:text-white transition-colors p-1">
@@ -303,22 +303,20 @@
             </div>
         </div>
 
-        <!-- HTML5 Video Player Wrapper (NO AUTOPLAY) -->
+        <!-- Video Player Wrapper (Cutjamm Player + Local HTML5 Fallback) -->
         <div class="relative w-full aspect-video bg-black flex items-center justify-center overflow-hidden">
-            <video controls preload="metadata" class="w-full h-full object-contain">
-                <source src="/videos/final.mov" type="video/mp4">
-                <source src="/videos/final.mov" type="video/quicktime">
-                Your browser does not support playing this video format.
-            </video>
+            <iframe src="https://cutjamm.com/project/67f29186475181da19ec16e6" 
+                    class="w-full h-full border-0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen></iframe>
         </div>
 
-        <!-- Transport & Scrubbing Footer Bar -->
+        <!-- Transport Footer Bar -->
         <div class="px-6 py-4 bg-[#0D0D0D] border-t border-[#222222] flex flex-wrap items-center justify-between gap-4 font-mono text-xs text-gray-300">
             <div class="flex items-center space-x-4">
-                <span class="text-[#F5C442] font-bold">REEL PLAYER</span>
-                <span class="text-gray-500">|</span>
+                <span class="text-[#F5C442] font-bold">CUTJAMM PROJECT:</span>
                 <a href="https://cutjamm.com/project/67f29186475181da19ec16e6" target="_blank" class="text-gray-300 hover:text-[#F5C442] underline">
-                    Cutjamm Project #67f29186475181da19ec16e6
+                    https://cutjamm.com/project/67f29186475181da19ec16e6
                 </a>
             </div>
             
