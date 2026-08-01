@@ -29,10 +29,13 @@ foreach ($routes as $uri => $outPath) {
     $response = $app->handle($request);
     $html = $response->getContent();
     
-    // Replace hardcoded http://localhost domain with relative /build/ URLs
+    // Replace hardcoded localhost URLs with relative paths for Vercel/static hosting
     $html = str_replace('http://localhost/build/', '/build/', $html);
     $html = str_replace('http://127.0.0.1/build/', '/build/', $html);
     $html = str_replace('http://127.0.0.1:8000/build/', '/build/', $html);
+    $html = str_replace('http://localhost', '/', $html);
+    $html = str_replace('http://127.0.0.1', '/', $html);
+    $html = str_replace('http://127.0.0.1:8000', '/', $html);
     
     $dir = dirname(__DIR__ . '/' . $outPath);
     if (!is_dir($dir)) {
